@@ -3,221 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Princess | Developer Profile</title>
+  <title>Princess | Creative Coder</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'JetBrains Mono', monospace;
-      background: radial-gradient(circle at top, #0f2027, #000000 70%);
-      color: #e5e5e5;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7, #fcb1d1);
+      background-size: 300% 300%;
+      animation: bgMove 10s ease infinite;
+      color: #2b2b2b;
       min-height: 100vh;
     }
 
-    /* Background grid */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: linear-gradient(rgba(0,255,170,0.06) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(0,255,170,0.06) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: -1;
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 60px 20px;
+      align-items: center;
+      padding: 70px 20px;
     }
 
-    .terminal {
+    .card {
       max-width: 1000px;
       width: 100%;
-      background: rgba(10, 15, 20, 0.95);
-      border-radius: 14px;
-      box-shadow: 0 0 40px rgba(0,255,170,0.25);
-      border: 1px solid rgba(0,255,170,0.2);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      box-shadow: 0 40px 80px rgba(255, 105, 180, 0.35);
       overflow: hidden;
     }
 
-    /* Terminal top bar */
-    .terminal-bar {
-      background: #0b0f14;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid rgba(0,255,170,0.15);
+    .top {
+      padding: 60px 40px 40px;
+      text-align: center;
+      position: relative;
     }
 
-    .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .red { background: #ff5f56; }
-    .yellow { background: #ffbd2e; }
-    .green { background: #27c93f; }
-
-    .terminal-body {
-      padding: 40px 30px 50px;
+    .top::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255, 105, 180, 0.35), transparent 70%);
+      z-index: -1;
     }
 
-    .profile {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 30px;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .profile img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
+    .avatar {
+      width: 170px;
+      height: 170px;
       border-radius: 50%;
-      border: 3px solid #00ffaa;
-      box-shadow: 0 0 25px rgba(0,255,170,0.6);
+      object-fit: cover;
+      border: 5px solid #ff69b4;
+      box-shadow: 0 0 40px rgba(255, 20, 147, 0.7);
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 34px;
-      color: #00ffaa;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #ff2f92;
       margin-bottom: 8px;
+      letter-spacing: 1px;
     }
 
     .subtitle {
-      color: #9ef5d2;
-      font-size: 15px;
+      font-size: 16px;
+      color: #6b1c45;
+      font-weight: 500;
     }
 
-    .section {
-      margin-bottom: 35px;
+    .content {
+      padding: 50px 50px 60px;
     }
 
-    .section h2 {
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #00ffaa;
+    section {
+      margin-bottom: 40px;
     }
 
-    .section p, .section li {
-      font-size: 15px;
-      line-height: 1.7;
-      color: #cfd8dc;
+    section h2 {
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: #ff2f92;
+      font-weight: 700;
     }
 
-    ul { list-style: none; }
-
-    ul li::before {
-      content: "> ";
-      color: #00ffaa;
+    section p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
     }
 
     .skills span {
       display: inline-block;
-      border: 1px solid #00ffaa;
-      color: #00ffaa;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin: 6px 8px 0 0;
-      font-size: 13px;
+      background: linear-gradient(135deg, #ff69b4, #ff1493);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      margin: 8px 10px 0 0;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+    }
+
+    ul { list-style: none; }
+
+    ul li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #ff1493;
     }
 
     footer {
       text-align: center;
-      padding-top: 30px;
-      font-size: 13px;
-      color: #6fffd2;
-      opacity: 0.8;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #6b1c45;
+      background: rgba(255,255,255,0.4);
     }
 
-    /* Responsive */
     @media (max-width: 700px) {
-      .profile {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .profile img { margin: 0 auto; }
+      .content { padding: 35px 25px 45px; }
+      h1 { font-size: 34px; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="terminal">
+  <div class="card">
 
-    <div class="terminal-bar">
-      <div class="dot red"></div>
-      <div class="dot yellow"></div>
-      <div class="dot green"></div>
+    <div class="top">
+      <img src="princess.jpeg" alt="Princess" class="avatar" />
+      <h1>Princess</h1>
+      <div class="subtitle">Creative Coder · Web Developer · CS Explorer</div>
     </div>
 
-    <div class="terminal-body">
+    <div class="content">
 
-      <div class="profile">
-        <img src="princess.jpeg" alt="Princess" />
-        <div>
-          <h1>Princess</h1>
-          <div class="subtitle">BNYS Student · Aspiring Developer · Lifelong Learner</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>// about_me</h2>
+      <section>
+        <h2>About Me</h2>
         <p>
-          I am Princess, currently pursuing <strong>BNYS (Bachelor of Naturopathy and Yogic Sciences)</strong>.
-          Alongside healthcare and holistic sciences, I am deeply interested in technology, coding, and web development.
-          I believe in slow, consistent growth and building real-world skills step by step.
+          I am Princess — deeply curious about computer science, coding, and how beautiful ideas turn into real digital experiences.
+          I love exploring how websites work behind the scenes, designing interfaces that feel joyful, and learning technology
+          in a practical, hands-on way. I believe creativity and logic together make powerful things.
         </p>
-      </div>
+      </section>
 
-      <div class="section">
-        <h2>// education</h2>
+      <section>
+        <h2>My Tech Interests</h2>
         <ul>
-          <li>Bachelor of Naturopathy and Yogic Sciences (BNYS)</li>
-          <li>Focus on physiology, wellness, and holistic living</li>
+          <li>Computer Science fundamentals</li>
+          <li>Web development and UI design</li>
+          <li>Frontend creativity with clean code</li>
+          <li>Backend basics and logic building</li>
+          <li>Turning ideas into working projects</li>
         </ul>
-      </div>
+      </section>
 
-      <div class="section">
-        <h2>// skills_and_interests</h2>
+      <section>
+        <h2>Skills I'm Building</h2>
         <div class="skills">
-          <span>Python</span>
-          <span>Flask</span>
           <span>HTML</span>
           <span>CSS</span>
-          <span>Web Development</span>
-          <span>Self Growth</span>
-          <span>Communication</span>
+          <span>Python</span>
+          <span>Flask</span>
+          <span>Web Design</span>
+          <span>Problem Solving</span>
         </div>
-      </div>
+      </section>
 
-      <div class="section">
-        <h2>// goals</h2>
+      <section>
+        <h2>My Vision</h2>
         <p>
-          To become confident, independent, and technically skilled. I aim to improve my English communication,
-          build meaningful software projects, and combine health knowledge with technology to create value.
+          I want to grow into a confident developer who builds meaningful, beautiful, and user-friendly web experiences.
+          My focus is on learning deeply, experimenting fearlessly, and creating a future where technology becomes
+          a tool for self-expression and impact.
         </p>
-      </div>
-
-      <div class="section">
-        <h2>// values</h2>
-        <ul>
-          <li>Growth mindset</li>
-          <li>Consistency over perfection</li>
-          <li>Self‑respect and kindness</li>
-          <li>Lifelong learning</li>
-        </ul>
-      </div>
-
-      <footer>
-        © 2026 · princesskhubchandani.github.io
-      </footer>
+      </section>
 
     </div>
+
+    <footer>
+      © 2026 · princesskhubchandani.github.io · made with 💖 + code
+    </footer>
+
   </div>
 </header>
 
