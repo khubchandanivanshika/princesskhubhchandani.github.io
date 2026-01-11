@@ -3,142 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me | Princess</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Princess | Developer Profile</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f6d365, #fda085);
-      color: #333;
-    }
-    header {
+      font-family: 'JetBrains Mono', monospace;
+      background: radial-gradient(circle at top, #0f2027, #000000 70%);
+      color: #e5e5e5;
       min-height: 100vh;
+    }
+
+    /* Background grid */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(0,255,170,0.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,255,170,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+    }
+
+    header {
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 40px;
+      padding: 60px 20px;
     }
-    .card {
-      background: #ffffff;
-      max-width: 900px;
+
+    .terminal {
+      max-width: 1000px;
       width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      background: rgba(10, 15, 20, 0.95);
+      border-radius: 14px;
+      box-shadow: 0 0 40px rgba(0,255,170,0.25);
+      border: 1px solid rgba(0,255,170,0.2);
       overflow: hidden;
     }
-    .hero {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 50px 30px;
+
+    /* Terminal top bar */
+    .terminal-bar {
+      background: #0b0f14;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(0,255,170,0.15);
     }
-    .hero h1 {
-      font-size: 42px;
-      font-weight: 700;
-      margin-bottom: 10px;
+
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #27c93f; }
+
+    .terminal-body {
+      padding: 40px 30px 50px;
     }
-    .hero p {
-      font-size: 18px;
-      opacity: 0.9;
+
+    .profile {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 40px;
     }
-    .content {
-      padding: 40px 30px;
+
+    .profile img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #00ffaa;
+      box-shadow: 0 0 25px rgba(0,255,170,0.6);
     }
-    section {
+
+    h1 {
+      font-size: 34px;
+      color: #00ffaa;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #9ef5d2;
+      font-size: 15px;
+    }
+
+    .section {
       margin-bottom: 35px;
     }
-    section h2 {
-      font-size: 26px;
-      margin-bottom: 15px;
-      color: #764ba2;
+
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #00ffaa;
     }
-    section p {
-      font-size: 16px;
+
+    .section p, .section li {
+      font-size: 15px;
       line-height: 1.7;
+      color: #cfd8dc;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+
+    ul { list-style: none; }
+
+    ul li::before {
+      content: "> ";
+      color: #00ffaa;
     }
-    ul li {
-      padding: 8px 0;
-      font-size: 16px;
-    }
-    .tags span {
+
+    .skills span {
       display: inline-block;
-      background: #f0e9ff;
-      color: #5a3ea6;
-      padding: 8px 14px;
+      border: 1px solid #00ffaa;
+      color: #00ffaa;
+      padding: 6px 14px;
       border-radius: 20px;
-      margin: 6px 6px 0 0;
-      font-size: 14px;
+      margin: 6px 8px 0 0;
+      font-size: 13px;
     }
+
     footer {
       text-align: center;
-      padding: 20px;
-      background: #fafafa;
-      font-size: 14px;
-      color: #666;
+      padding-top: 30px;
+      font-size: 13px;
+      color: #6fffd2;
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .profile img { margin: 0 auto; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="card">
-      <div class="hero">
-        <h1>Hi, I'm Princess 👋</h1>
-        <p>BNYS Student | Learner | Dreamer | Growing Every Day</p>
-      </div>
-      <div class="content">
-        <section>
-          <h2>About Me</h2>
-          <p>
-            My name is Princess. I am currently studying <strong>BNYS (Bachelor of Naturopathy and Yogic Sciences)</strong>.
-            I believe in personal growth, self‑improvement, and learning new skills that help me become independent and confident in life.
-            I enjoy learning step by step and turning my curiosity into knowledge.
-          </p>
-        </section>
-        <section>
-          <h2>Education</h2>
-          <ul>
-            <li>🎓 Bachelor of Naturopathy and Yogic Sciences (BNYS)</li>
-            <li>📘 Interested in physiology, health, and holistic living</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Skills & Interests</h2>
-          <div class="tags">
-            <span>Python & Flask</span>
-            <span>Web Development</span>
-            <span>HTML & CSS</span>
-            <span>Learning Technology</span>
-            <span>Self‑Growth</span>
-            <span>Communication Skills</span>
-          </div>
-        </section>
-        <section>
-          <h2>My Goals</h2>
-          <p>
-            I want to become confident, skilled, and independent. My goals include improving my English speaking skills,
-            learning practical computer knowledge, building useful projects, and creating a strong future for myself
-            through consistent learning and effort.
-          </p>
-        </section>
-        <section>
-          <h2>My Values</h2>
-          <ul>
-            <li>🌱 Growth mindset</li>
-            <li>💪 Consistency over perfection</li>
-            <li>🤍 Kindness and self‑respect</li>
-            <li>📚 Lifelong learning</li>
-          </ul>
-        </section>
-      </div>
-      <footer>
-        © 2026 | Designed with ❤️ by Princess
-      </footer>
+
+<header>
+  <div class="terminal">
+
+    <div class="terminal-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
     </div>
-  </header>
+
+    <div class="terminal-body">
+
+      <div class="profile">
+        <img src="princess.jpeg" alt="Princess" />
+        <div>
+          <h1>Princess</h1>
+          <div class="subtitle">BNYS Student · Aspiring Developer · Lifelong Learner</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>// about_me</h2>
+        <p>
+          I am Princess, currently pursuing <strong>BNYS (Bachelor of Naturopathy and Yogic Sciences)</strong>.
+          Alongside healthcare and holistic sciences, I am deeply interested in technology, coding, and web development.
+          I believe in slow, consistent growth and building real-world skills step by step.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>// education</h2>
+        <ul>
+          <li>Bachelor of Naturopathy and Yogic Sciences (BNYS)</li>
+          <li>Focus on physiology, wellness, and holistic living</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>// skills_and_interests</h2>
+        <div class="skills">
+          <span>Python</span>
+          <span>Flask</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>Web Development</span>
+          <span>Self Growth</span>
+          <span>Communication</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>// goals</h2>
+        <p>
+          To become confident, independent, and technically skilled. I aim to improve my English communication,
+          build meaningful software projects, and combine health knowledge with technology to create value.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>// values</h2>
+        <ul>
+          <li>Growth mindset</li>
+          <li>Consistency over perfection</li>
+          <li>Self‑respect and kindness</li>
+          <li>Lifelong learning</li>
+        </ul>
+      </div>
+
+      <footer>
+        © 2026 · princesskhubchandani.github.io
+      </footer>
+
+    </div>
+  </div>
+</header>
+
 </body>
 </html>
